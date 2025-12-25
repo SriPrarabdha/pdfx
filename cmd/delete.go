@@ -20,9 +20,6 @@ var deleteCmd = &cobra.Command{
 
 Examples:
   pdfx delete file.pdf --pages 3
-  pdfx delete file.pdf --pages 1,4-6
-  pdfx delete file.pdf --pages n
-  pdfx delete file.pdf --pages 2-n
   pdfx delete file.pdf --pages 1,3,5,n
 `,
 	Args: cobra.ExactArgs(1),

@@ -7,14 +7,12 @@ import (
 )
 
 // ParseKeepPages parses page ranges like "1,3-5,7"
-// and returns []string{"1", "3-5", "7"} for pdfcpu.
 func ParseKeepPages(pages string) ([]string, error) {
 	pages = strings.TrimSpace(pages)
 	if pages == "" {
 		return nil, fmt.Errorf("page range cannot be empty")
 	}
 
-	// pdfcpu-compatible page range validation
 	re := regexp.MustCompile(`^(\d+(-\d+)?)(,(\d+(-\d+)?))*$`)
 	if !re.MatchString(pages) {
 		return nil, fmt.Errorf("invalid page range format: %s", pages)

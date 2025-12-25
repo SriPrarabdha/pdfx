@@ -8,7 +8,6 @@ import (
 )
 
 // ParseDeletePages parses user input like "1,3-5,n,7-n"
-// and returns a set of pages to DELETE.
 func ParseDeletePages(input string, total int) (map[int]bool, error) {
 	result := make(map[int]bool)
 
@@ -66,7 +65,6 @@ func parsePage(s string, total int) (int, error) {
 	return p, nil
 }
 
-// ComplementPages returns pages to KEEP
 func ComplementPages(delete map[int]bool, total int) []string {
 	var keep []int
 	for i := 1; i <= total; i++ {

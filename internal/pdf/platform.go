@@ -2,7 +2,6 @@ package pdf
 
 import "runtime"
 
-// ghostscript executable name per platform
 func ghostscriptCmd() string {
 	if runtime.GOOS == "windows" {
 		return "gswin64c"
@@ -10,7 +9,6 @@ func ghostscriptCmd() string {
 	return "gs"
 }
 
-// libreoffice executable name per platform
 func libreOfficeCmd() string {
 	if runtime.GOOS == "windows" {
 		return "soffice"

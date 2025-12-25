@@ -60,7 +60,6 @@ func ImagesToPDF(images []string, output string) error {
 	}
 	defer outFile.Close()
 
-	// Convert []os.File → []io.Reader
 	var imgReaders []io.Reader
 	for i := range readers {
 		imgReaders = append(imgReaders, &readers[i])
@@ -69,10 +68,10 @@ func ImagesToPDF(images []string, output string) error {
 	importConf := pdfcpu.DefaultImportConfig()
 
 	if err := api.ImportImages(
-		nil,                 // no existing PDF
-		outFile,             // output writer
-		imgReaders,          // images
-		importConf,          // import config
+		nil,                 
+		outFile,             
+		imgReaders,          
+		importConf,          
 		model.NewDefaultConfiguration(),
 	); err != nil {
 		return fmt.Errorf("failed to create PDF from images: %w", err)
