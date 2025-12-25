@@ -12,13 +12,13 @@ func ExtractPages(input, output, pages string) error {
 		return fmt.Errorf("input file not found: %s", input)
 	}
 
-	pageList, err := ParsePageRange(pages)
+	pageList, err := ParseKeepPages(pages)
 	if err != nil {
 		return err
 	}
 
 	if err := api.TrimFile(input, output, pageList, nil); err != nil {
-		return fmt.Errorf("failed to delete pages: %w", err)
+		return fmt.Errorf("failed to extract pages: %w", err)
 	}
 
 	return nil
