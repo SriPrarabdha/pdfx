@@ -64,6 +64,21 @@ Uploading **sensitive documents** (IDs, contracts, resumes) to random websites.
 
 ## Installation
 
+First install the external dependency for sanity check use ```pdfx doctor``` then install the binary.
+
+### External Dependency
+
+Linux
+```bash
+sudo apt install ghostscript pandoc libreoffice
+```
+
+MacOS
+```bash
+brew install ghostscript pandoc
+brew install --cask libreoffice
+```
+
 ### Option 1 — Download binary (recommended)
 Download the latest release from [GitHub Releases](https://github.com/yourusername/pdfx/releases) and place it in your `PATH`.
 
@@ -78,35 +93,6 @@ mv pdfx /usr/local/bin/
 git clone https://github.com/yourusername/pdfx
 cd pdfx
 go build
-```
-
----
-
-## External Dependencies (Optional but Powerful)
-
-Some features rely on well-established local tools:
-
-| Tool | Used for |
-|------|----------|
-| **Ghostscript** | PDF compression |
-| **Pandoc** | `.txt`, `.md`, `.html` → PDF |
-| **LibreOffice** | `.docx`, `.pptx`, `.xlsx` → PDF |
-
-Install them only if you need those features.
-
-Check availability anytime:
-
-```bash
-pdfx doctor
-```
-
-**Example output:**
-
-```
-pdfx system check:
-  ✔ Ghostscript (PDF compression)
-  ✔ Pandoc (Text/Markdown to PDF)
-  ✘ LibreOffice (DOCX/PPTX/XLSX to PDF) — NOT FOUND
 ```
 
 ---
@@ -336,22 +322,6 @@ pdfx compress --help
 
 ---
 
-## Project Structure
-
-```text
-pdfx/
-├── cmd/            # CLI commands
-├── internal/
-│   ├── pdf/        # PDF & document logic
-│   └── image/      # Image processing
-├── main.go
-├── README.md
-```
-
-Clean separation between CLI interface, core logic, and external integrations.
-
----
-
 ## Security & Privacy
 
 * ✅ No internet access
@@ -364,16 +334,6 @@ Clean separation between CLI interface, core logic, and external integrations.
 
 ---
 
-## Who is this for?
-
-* 💻 Developers & power users
-* 🎓 Students filling applications
-* ⚖️ Legal / compliance workflows
-* 🔬 Researchers handling documents
-* 🔒 Anyone tired of uploading PDFs to random websites
-
----
-
 ## Roadmap
 
 - [ ] Page reordering
@@ -381,20 +341,6 @@ Clean separation between CLI interface, core logic, and external integrations.
 - [ ] Config file support
 - [ ] Homebrew / Scoop packages
 - [ ] Windows-friendly installers
-
----
-
-## Contributing
-
-Contributions are welcome — features, docs, tests, or bug fixes.
-
-```bash
-git checkout -b feature/my-feature
-git commit -m "Add awesome thing"
-git push origin feature/my-feature
-```
-
-Open a PR and explain the motivation clearly.
 
 ---
 
