@@ -13,7 +13,7 @@ func Split(input, pages string) error {
 		return fmt.Errorf("input file not found: %s", input)
 	}
 
-	pageList, err := ParsePageRange(pages)
+	pageList, err := ParseKeepPages(pages)
 	if err != nil {
 		return err
 	}
