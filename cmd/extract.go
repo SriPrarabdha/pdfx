@@ -12,8 +12,8 @@ var extractPages string
 var extractOutput string
 
 var extractCmd = &cobra.Command{
-	Use:   "delete [pdf file]",
-	Short: "Delete selected pages from a PDF",
+	Use:   "Extract [pdf file]",
+	Short: "Extract selected pages from a PDF",
 	Args:  cobra.ExactArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if extractPages == "" {
@@ -30,7 +30,7 @@ var extractCmd = &cobra.Command{
 }
 
 func init() {
-	extractCmd.Flags().StringVar(&extractPages, "pages", "", "Pages to delete (e.g. 2,4-6)")
+	extractCmd.Flags().StringVar(&extractPages, "pages", "", "Pages to extract (e.g. 2,4-6)")
 	extractCmd.Flags().StringVarP(&extractOutput, "output", "o", "output.pdf", "Output PDF file")
 	rootCmd.AddCommand(extractCmd)
 }
