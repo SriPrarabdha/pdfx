@@ -23,9 +23,11 @@ func CompressPDF(input, output, level string) error {
 		return fmt.Errorf("invalid compression level: %s (use good, better, best)", level)
 	}
 
+	gsCmd := ghostscriptCmd()
+
 	// Check if ghostscript is installed
-	if _, err := exec.LookPath("gs"); err != nil {
-		return fmt.Errorf("ghostscript (gs) not found in PATH")
+	if _, err := exec.LookPath(gsCmd); err != nil {
+		return fmt.Errorf("ghostscript (%s) not found in PATH", gsCmd)
 	}
 
 	args := []string{
@@ -39,7 +41,7 @@ func CompressPDF(input, output, level string) error {
 		input,
 	}
 
-	cmd := exec.Command("gs", args...)
+	cmd := exec.Command(gsCmd, args...)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 
