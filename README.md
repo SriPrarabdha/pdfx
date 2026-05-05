@@ -8,6 +8,8 @@ No shady websites.
 
 Just one binary and predictable commands.
 
+docs - https://sriprarabdha.github.io/pdfx-docs/
+
 ---
 
 ## Why pdfx?
